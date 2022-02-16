@@ -29,9 +29,6 @@ export const useStyles = makeStyles({
     fontSize: "12px",
     cursor: "pointer",
     boxShadow: " 5px 5px 15px -5px rgba(0, 0, 0, 0.3)",
-    "&:hover": {
-      background: "#20bf6b",
-    },
     "@media (max-width:768px)": {
       fontSize: "14px",
     },
