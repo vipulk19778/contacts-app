@@ -15,6 +15,12 @@ export const useStyles = makeStyles({
     marginTop: "0",
     marginBottom: "10px",
   },
+  inputFieldContainer: {
+    marginTop: "45px",
+    "@media (max-width:768px)": {
+      marginTop: "5px",
+    },
+  },
   inputField: {
     marginTop: "15px",
     marginBottom: "10px",

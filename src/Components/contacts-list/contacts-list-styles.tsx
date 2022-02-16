@@ -4,13 +4,19 @@ export const useStyles = makeStyles({
   contactListItemContainer: {
     width: "50%",
     float: "left",
+    background: "white !important",
     "@media screen and (max-width:768px)": {
       width: "100%",
     },
   },
-  navLink: {
-    textDecoration: "none",
+  h1: {
+    color: "white",
+    backgroundColor: "#8566aa",
+    padding: "10px 0 10px 0",
+    marginTop: "0",
+    marginBottom: "10px",
   },
+
   newContactForm: {
     fontSize: "12px",
     cursor: "pointer",
@@ -23,8 +29,18 @@ export const useStyles = makeStyles({
       fontSize: "14px",
     },
   },
-  listItems: {
-    marginTop: "30px",
+  todoStyle: {
+    "&:nth-child(odd)": {
+      background: "#f5f5f5",
+    },
+  },
+  tableContainer: {
+    position: "relative",
+    width: "90%",
+    margin: "10px auto",
+    "@media (max-width:768px)": {
+      margin: "20px auto",
+    },
   },
   li: {
     paddingLeft: "0px",
@@ -37,35 +53,22 @@ export const useStyles = makeStyles({
     alignItems: "center",
     color: "#8566aa",
     cursor: "pointer",
-  },
-  listItemContainer: {},
-  iconsContainer: {
-    position: "absolute",
-    right: "0px",
     "@media (max-width:768px)": {
-      marginRight: "3px",
+      fontSize: "10px",
     },
   },
-  h1: {
-    color: "white",
-    backgroundColor: "#8566aa",
-    padding: "10px 0 10px 0",
-    marginTop: "0",
-    marginBottom: "10px",
+
+  listItemContainer: {},
+
+  iconsContainer: {
+    position: "absolute",
+    right: "0",
+    marginTop: "-32px",
   },
-  todoStyle: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "left",
-    alignItems: "center",
-    position: "relative",
-  },
+
   delete: {
     width: "20px",
     height: "20px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     margin: "0 10px 0 20px",
     color: "#8566aa",
     cursor: "pointer",
@@ -74,9 +77,6 @@ export const useStyles = makeStyles({
   edit: {
     width: "20px",
     height: "20px",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
     margin: "0 15px 0 0",
     color: "#8566aa",
     cursor: "pointer",
