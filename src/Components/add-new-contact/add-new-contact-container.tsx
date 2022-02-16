@@ -23,6 +23,19 @@ export const AddNewContactComponent = () => {
     setUserData({ ...userData, [name]: value });
   };
 
+  const handleNextFocus = (event: any) => {
+    if (event.key.toLowerCase() === "enter") {
+      const form = event.target.form;
+      const index = [...form].indexOf(event.target);
+      form.elements[index + 1].focus();
+      event.preventDefault();
+    }
+  };
+
+  const handleKeyDown = (e: any) => {
+    if (e.key.toLowerCase() === "enter") onSaveContactButton();
+  };
+
   const onSaveContactButton = () => {
     if (!(userData.name && userData.email && userData.phone && userData.note)) {
       toast.error("Please enter data", { autoClose: 2000 });
@@ -69,6 +82,8 @@ export const AddNewContactComponent = () => {
     userData: userData,
     listItem: listItem,
     toggleSubmit: toggleSubmit,
+    handleKeyDown: handleKeyDown,
+    handleNextFocus: handleNextFocus,
   };
 
   return <AddNewContactRenderer states={states} />;
