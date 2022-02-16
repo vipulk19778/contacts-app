@@ -75,6 +75,7 @@ export const ContactsListComponent = () => {
         phone: "",
         note: "",
       });
+    setToggleSubmit(true);
   };
 
   const onListItemClick = (item: any, index: any) => {
