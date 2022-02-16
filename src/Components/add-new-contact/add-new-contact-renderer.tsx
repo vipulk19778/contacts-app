@@ -10,52 +10,54 @@ export const AddNewContactRenderer = ({ states }: any) => {
     <div className={classes.contactFormContainer}>
       <h1 className={classes.h1}>Add New Contact</h1>
       <ToastContainer />
-      <div className={classes.inputField}>
-        <FormControl>
-          <InputLabel htmlFor="name">Contact Name</InputLabel>
-          <Input
-            type="text"
-            name="name"
-            value={userData.name}
-            onChange={onInputChange}
-          />
-        </FormControl>
-      </div>
+      <div className={classes.inputFieldContainer}>
+        <div className={classes.inputField}>
+          <FormControl>
+            <InputLabel htmlFor="name">Contact Name</InputLabel>
+            <Input
+              type="text"
+              name="name"
+              value={userData.name}
+              onChange={onInputChange}
+            />
+          </FormControl>
+        </div>
 
-      <div className={classes.inputField}>
-        <FormControl>
-          <InputLabel htmlFor="email">Email</InputLabel>
-          <Input
-            type="email"
-            name="email"
-            value={userData.email}
-            onChange={onInputChange}
-          />
-        </FormControl>
-      </div>
+        <div className={classes.inputField}>
+          <FormControl>
+            <InputLabel htmlFor="email">Email</InputLabel>
+            <Input
+              type="email"
+              name="email"
+              value={userData.email}
+              onChange={onInputChange}
+            />
+          </FormControl>
+        </div>
 
-      <div className={classes.inputField}>
-        <FormControl>
-          <InputLabel htmlFor="phone">Phone</InputLabel>
-          <Input
-            type="text"
-            name="phone"
-            value={states.userData.phone}
-            onChange={onInputChange}
-          />
-        </FormControl>
-      </div>
+        <div className={classes.inputField}>
+          <FormControl>
+            <InputLabel htmlFor="phone">Phone</InputLabel>
+            <Input
+              type="text"
+              name="phone"
+              value={states.userData.phone}
+              onChange={onInputChange}
+            />
+          </FormControl>
+        </div>
 
-      <div className={classes.inputField}>
-        <FormControl>
-          <InputLabel htmlFor="note">Note</InputLabel>
-          <Input
-            placeholder="Write Something..."
-            name="note"
-            value={userData.note}
-            onChange={onInputChange}
-          />
-        </FormControl>
+        <div className={classes.inputField}>
+          <FormControl>
+            <InputLabel htmlFor="note">Note</InputLabel>
+            <Input
+              placeholder="Write Something..."
+              name="note"
+              value={userData.note}
+              onChange={onInputChange}
+            />
+          </FormControl>
+        </div>
       </div>
 
       {toggleSubmit ? (
