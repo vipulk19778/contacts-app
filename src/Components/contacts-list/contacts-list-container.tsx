@@ -19,7 +19,7 @@ export const ContactsListComponent = () => {
     setToggleSubmit,
     setInputEditButtonId,
     setListItemData,
-  } = React.useContext<any>(AuthContext);
+  } = React.useContext(AuthContext);
 
   const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -41,8 +41,8 @@ export const ContactsListComponent = () => {
     },
   }));
 
-  const handleEditButton = (id: any) => {
-    const editItem = listItem.find((prevData: any, index: any) => {
+  const handleEditButton = (id: number) => {
+    const editItem: any = listItem.find((prevData: {}, index: number) => {
       return id === index;
     });
     setUserData(editItem);
@@ -50,9 +50,9 @@ export const ContactsListComponent = () => {
     setToggleSubmit(false);
   };
 
-  const handleDeleteButton = (id: any) => {
+  const handleDeleteButton = (id: number) => {
     setListItem(
-      listItem.filter((prevData: any, index: any) => {
+      listItem.filter((prevData: {}, index: number) => {
         return id !== index;
       })
     );

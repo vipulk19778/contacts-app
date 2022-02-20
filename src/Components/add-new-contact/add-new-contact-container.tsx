@@ -47,8 +47,9 @@ export const AddNewContactComponent = () => {
       !toggleSubmit
     ) {
       setListItem(
-        listItem.map((prevData: any, index: any) => {
+        listItem.map((prevData: {}, index: number) => {
           if (index === inputEditButtonId) {
+            console.log(prevData);
             return userData;
           }
           return prevData;
