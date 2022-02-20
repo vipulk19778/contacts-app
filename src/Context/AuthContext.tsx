@@ -1,8 +1,47 @@
 import React from "react";
 
-export const AuthContext = React.createContext<any>("");
+interface IStringArray {
+  (): {}[];
+}
 
-const getLocalStorageData = () => {
+export interface IAuthContext {
+  listItem: {}[];
+  setListItem: (listItem: {}[]) => void;
+  userData: { name: string; email: string; phone: string; note: string };
+  setUserData: (userData: {
+    name: string;
+    email: string;
+    phone: string;
+    note: string;
+  }) => void;
+  toggleSubmit: boolean;
+  setToggleSubmit: (toggleSubmit: boolean) => void;
+  inputEditButtonId: null | number;
+  setInputEditButtonId: (inputEditButtonId: null | number) => void;
+  listItemData: { name: string; email: string; phone: string; note: string };
+  setListItemData: (listItemData: {
+    name: string;
+    email: string;
+    phone: string;
+    note: string;
+  }) => void;
+}
+
+export const AuthContext: React.Context<IAuthContext> =
+  React.createContext<IAuthContext>({
+    listItem: [],
+    setListItem: () => {},
+    userData: { name: "", email: "", phone: "", note: "" },
+    setUserData: () => {},
+    toggleSubmit: true,
+    setToggleSubmit: () => {},
+    inputEditButtonId: null,
+    setInputEditButtonId: () => {},
+    listItemData: { name: "", email: "", phone: "", note: "" },
+    setListItemData: () => {},
+  });
+
+const getLocalStorageData: IStringArray = () => {
   const localStorageListItemContactsApp = localStorage.getItem(
     "localStorageListItemContactsApp"
   );
@@ -12,8 +51,8 @@ const getLocalStorageData = () => {
   return [];
 };
 
-export const AuthProvider = ({ children }: any) => {
-  const [listItem, setListItem] = React.useState<any>(getLocalStorageData());
+export const AuthProvider: React.FunctionComponent = ({ children }) => {
+  const [listItem, setListItem] = React.useState(getLocalStorageData());
 
   const [userData, setUserData] = React.useState({
     name: "",
@@ -22,11 +61,18 @@ export const AuthProvider = ({ children }: any) => {
     note: "",
   });
 
-  const [toggleSubmit, setToggleSubmit] = React.useState<any>(true);
+  const [toggleSubmit, setToggleSubmit] = React.useState(true);
 
-  const [inputEditButtonId, setInputEditButtonId] = React.useState<any>(null);
+  const [inputEditButtonId, setInputEditButtonId] = React.useState<
+    number | null
+  >(null);
 
-  const [listItemData, setListItemData] = React.useState<any>({});
+  const [listItemData, setListItemData] = React.useState({
+    name: "",
+    email: "",
+    phone: "",
+    note: "",
+  });
 
   const store = {
     listItem,
